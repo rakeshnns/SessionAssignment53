@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 5.3</title>
+</head>
+<body>
+<h2> Assignment 5.3... Objects</h2>
+<P style="background-color: lightgrey">Object Creation and display</P>
+<b><p id = "displaydoc1"></p></b>                                    <!-- Inner Html points -->
+<P style="background-color: lightgrey">Nested object creation and display</P>
+<b><p id = "displaydoc2"></p></b>                                    <!-- Inner Html points -->
+<b><i><p id = "displaydoc3"></p></i></b>                             <!-- Inner Html points --> 
+<p  style="background-color: lightgrey">Add the new property as eyecolor and mother name of Student.</p>
+<b><p id = "displaydoc4"></p></b>                                    <!-- Inner Html points -->
+<p  style="background-color: lightgrey">Delete eyecolor from StudentDetail object.</p>
+<b><p id = "displaydoc5"></p></b>                                    <!-- Inner Html points -->
+
+
+
+<script type="text/javascript">
+    // Decalaration of New object.
+	var studentDetail =  {StudentName:"Rakesh",DOB:"18121985",Skills:"AS400"}
+	// Displaying newly created object to inner html Id point displaydoc1.
+	document.getElementById("displaydoc1").innerHTML = 
+	"Student Name is "+ studentDetail.StudentName +" Date of Birth "+ studentDetail.DOB +
+	" Skills are "+ studentDetail.Skills +".";
+    
+    /*
+	studentDetail =  {
+		              StudentName:"Rakesh",
+		              DOB:"18121985",
+		              Skills:"AS400",
+		              address:{state:"Kerala",city:"Kochi",country:"India",pin:"683576"}
+		             }*/
+
+	// Added New nested object Address in existing object.             
+    studentDetail.address =  {state:"Kerala",city:"Kochi",country:"India",pin:"683576"}
+	
+	// Displayin Nested object to inner html Id point displaydoc2 and displaydoc3 .	             	             
+	document.getElementById("displaydoc2").innerHTML = 
+	"Student Name is "+ studentDetail.StudentName +" Date of Birth "+ studentDetail.DOB +
+	" Skills are "+ studentDetail.Skills +".";	    
+	document.getElementById("displaydoc3").innerHTML = 
+	"Address: State "+studentDetail.address.state+" City "+studentDetail.address.city+
+	" Country "+studentDetail.address.country+" pin "+studentDetail.address.pin;
+
+    // Added New properties to objct studentDetail in existing object.Proving Object is mutable 
+	studentDetail.eyecolor = "Black";
+	studentDetail.mothername = "Asha Devi";
+
+    // Displaying mutable object to inner html Id point displaydoc4.
+	document.getElementById("displaydoc4").innerHTML = 
+	"Student Name is "+ studentDetail.StudentName +" Date of Birth "+ studentDetail.DOB +
+	" Skills are "+ studentDetail.Skills +"."
+	document.getElementById("displaydoc4").innerHTML += "<br>";	  
+	document.getElementById("displaydoc4").innerHTML +=   
+	"Address: State "+studentDetail.address.state+" City "+studentDetail.address.city+
+	" Country "+studentDetail.address.country+" pin "+studentDetail.address.pin+"." 
+	document.getElementById("displaydoc4").innerHTML += "<br>";	
+	document.getElementById("displaydoc4").innerHTML += "New Properties added"
+	document.getElementById("displaydoc4").innerHTML += "<br>";
+	document.getElementById("displaydoc4").innerHTML +=
+	"Eye color:" + studentDetail.eyecolor+
+	" Mother Name:" + studentDetail.mothername ;
+
+    // Deleting one of the property from current object.
+	delete studentDetail.eyecolor;
+    
+     // Displaying enire object to inner html Id point displaydoc5.
+	document.getElementById("displaydoc5").innerHTML = 
+	"Student Name is "+ studentDetail.StudentName +" Date of Birth "+ studentDetail.DOB +
+	" Skills are "+ studentDetail.Skills +"."
+	document.getElementById("displaydoc5").innerHTML += "<br>";	  
+	document.getElementById("displaydoc5").innerHTML +=   
+	"Address: State "+studentDetail.address.state+" City "+studentDetail.address.city+
+	" Country "+studentDetail.address.country+" pin "+studentDetail.address.pin+"." 
+	document.getElementById("displaydoc5").innerHTML += "<br>";	
+	document.getElementById("displaydoc5").innerHTML += "New Properties added"
+	document.getElementById("displaydoc5").innerHTML += "<br>";
+	document.getElementById("displaydoc5").innerHTML +=
+	"<del>Eye color: </del>" +studentDetail.eyecolor+
+	" Mother Name:" + studentDetail.mothername ;
+
+
+
+
+</script>
+
+</body>
+</html>
